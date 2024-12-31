@@ -6,44 +6,9 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const PostList = () => {
 
-    const { postList, addInitialPosts } = useContext(PostListContext)
+    const { postList, fetching} = useContext(PostListContext)
 
-    const [fetching, setFetching] = useState(false)
 
-    useEffect(()=>{
-
-        if (postList.length > 0) {
-            // If data already exists in context, skip fetching
-            return;
-        }
-        
-        setFetching(true)  // making loading state true
-
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-        const fetchData = async ()=>{
-            try{
-                const response = await fetch("https://dummyjson.com/posts",{signal})
-                const data = await response.json()
-                if(!response.ok){
-                    throw new Error("Http error occured", response.status)
-                }
-                console.log(data.posts)
-                addInitialPosts(data.posts)
-                setFetching(false) // making loading state false
-            }
-            catch(err){
-                console.log(err)
-            }
-        }
-        fetchData();
-
-        return ()=>{
-            console.log("cleaning up")
-            controller.abort();
-        }
-    },[])
 
 
     // const handleGetPostsClick = async () => {

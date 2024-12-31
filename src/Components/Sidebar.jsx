@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ selectedTab , setSelectedTab}) => {
 
@@ -10,14 +11,14 @@ const Sidebar = ({ selectedTab , setSelectedTab}) => {
     <div className="d-flex flex-column p-3 m-3 bg-body-tertiary Sidebar" style={{width:"150px"}}>
     <ul className="nav nav-pills d-flex flex-column mb-auto">
       <li className="nav-item" onClick={()=>{handleOnClick("CreatePost")}}>
-        <a href="#" className={`nav-link ${selectedTab === "CreatePost" && 'active'}`} aria-current="page">
+        <Link to="/create-post" className={`nav-link ${selectedTab === "CreatePost" && 'active'}`} aria-current="page">
           Create Post
-        </a>
+        </Link>
       </li>
       <li onClick={()=>{handleOnClick("ViewPost")}}>
-        <a href="#" className={`nav-link ${selectedTab === "ViewPost" && 'active'}`} >
+        <Link to="/post-list" className={`nav-link ${selectedTab === "ViewPost" && 'active'}`} >
           View Posts
-        </a>
+        </Link>
       </li>
     </ul>
     </div>
