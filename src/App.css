@@ -1,0 +1,56 @@
+.Sidebar{
+    min-height: 400px;
+    border: 1px solid rgba(92, 91, 91, 0.144);
+}
+
+.Form{
+   width: 500px;
+   margin: auto;
+}
+
+.Container{
+    display: flex;
+    justify-content: center;
+}
+
+.allPost{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hashtags{
+    margin: 3px;
+
+}
+
+.delete{
+    position: relative;
+    left: 90%;
+    cursor: pointer;
+}
+
+.welcome-message{
+    position: absolute;
+    left:40%;
+    top:30%;
+}
+
+.single-post{
+    max-width: 800px;
+}
+
+
+@media (min-width: 1024px){
+    .single-post{
+        min-width: 550px
+    }
+}
+
+.loader{
+    position: absolute;
+    left:50%;
+    top:30%;
+}
